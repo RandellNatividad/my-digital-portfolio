@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Randell J. Natividad | Digital Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0F1C2E;--ink2:#1B2D47;--paper:#EEF1F6;--card:#fff;--text:#2A3649;--muted:#66738A;--line:#DCE2EC;--blue:#3B6CFF;--mint:#4FE3C1;--amber:#FFB547;--rose:#FF6B8B}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:'Figtree',system-ui,sans-serif;background:var(--paper);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;color:var(--ink);line-height:1.15}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:6px}
+::selection{background:var(--blue);color:#fff}
+
+nav{position:sticky;top:0;z-index:10;background:rgba(15,28,46,.92);backdrop-filter:blur(8px)}
+nav ul{max-width:960px;margin:auto;display:flex;gap:4px;list-style:none;padding:10px 20px;overflow-x:auto}
+nav a{display:block;padding:6px 14px;border-radius:999px;font-size:14px;font-weight:500;color:#B7C3D8;text-decoration:none;white-space:nowrap;transition:.2s}
+nav a:hover{background:var(--ink2);color:#fff}
+
+.hero{position:relative;background:var(--ink);color:#fff;overflow:hidden}
+.grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(auto-fill,32px);grid-auto-rows:32px;justify-content:center;opacity:.9}
+.grid i{border:1px solid rgba(255,255,255,.05);transition:background .8s,box-shadow .8s}
+.grid i.on{background:var(--c);box-shadow:0 0 18px var(--c);border-color:transparent}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 15%,rgba(15,28,46,.55) 60%,rgba(15,28,46,.1));pointer-events:none}
+.hero-in{position:relative;z-index:2;max-width:960px;margin:auto;padding:88px 20px 80px}
+.badge{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--mint);background:rgba(79,227,193,.1);border:1px solid rgba(79,227,193,.3);padding:5px 14px;border-radius:999px}
+.badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mint)}
+.hero h1{color:#fff;font-size:clamp(2.6rem,8vw,5.2rem);font-weight:800;letter-spacing:-.03em;margin:22px 0 14px}
+.hero p.role{font-size:clamp(1rem,2.4vw,1.25rem);color:#C6D2E6;max-width:34em}
+.meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:12px;background:#fff;color:var(--ink);font-weight:600;font-size:15px;text-decoration:none;transition:transform .2s,background .2s}
+.btn:hover{background:var(--mint);transform:translateY(-2px)}
+.btn svg{width:18px;height:18px;fill:currentColor}
+.loc{display:inline-flex;gap:8px;align-items:center;color:#B7C3D8;font-size:15px}
+.loc svg{width:18px;height:18px}
+
+main{max-width:960px;margin:auto;padding:0 20px}
+section{padding:64px 0 0}
+.h{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.h h2{font-size:clamp(1.6rem,4vw,2.2rem);font-weight:700;letter-spacing:-.02em}
+.h::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,var(--line),transparent)}
+.h b{width:14px;height:14px;background:var(--blue);border-radius:3px;box-shadow:6px 6px 0 var(--mint)}
+
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:20px}
+.about p{font-size:1.1rem;background:var(--card);border-radius:18px;padding:28px;border:1px solid var(--line)}
+.focus{background:var(--ink);border-radius:18px;padding:24px;color:#fff;list-style:none}
+.focus li{padding:10px 0 10px 24px;position:relative;font-weight:500;border-bottom:1px solid rgba(255,255,255,.1)}
+.focus li:last-child{border:0}
+.focus li::before{content:"";position:absolute;left:0;top:19px;width:10px;height:10px;border-radius:2px;background:var(--c)}
+
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sk{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:6px 6px 18px 18px;padding:22px}
+.sk h3{font-size:1.05rem;margin-bottom:14px}
+.sk div{display:flex;flex-wrap:wrap;gap:8px}
+.sk span{font-size:13.5px;font-weight:500;padding:4px 12px;border-radius:8px;background:color-mix(in srgb,var(--c) 11%,#fff);border:1px solid color-mix(in srgb,var(--c) 28%,#fff);color:var(--ink)}
+
+.tl{position:relative;padding-left:34px}
+.tl::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.job{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;margin-bottom:18px}
+.job::before{content:"";position:absolute;left:-34px;top:28px;width:18px;height:18px;border-radius:50%;background:var(--c);border:4px solid var(--paper)}
+.job .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-bottom:8px}
+.job h3{font-size:1.15rem}
+.yr{font-size:13px;font-weight:600;padding:3px 12px;border-radius:999px;background:var(--ink);color:#fff;height:fit-content}
+
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pj{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:14px;transition:transform .2s,box-shadow .2s}
+.pj:hover{transform:translateY(-3px);box-shadow:0 14px 30px -14px rgba(15,28,46,.3)}
+.pj .ico{width:42px;height:42px;border-radius:12px;background:color-mix(in srgb,var(--c) 15%,#fff);display:grid;place-items:center}
+.pj .ico svg{width:22px;height:22px;stroke:var(--c);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pj h3{font-size:1.2rem}
+.pj p{font-size:15px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:12px;font-weight:600;padding:3px 10px;border-radius:6px;background:var(--paper);color:var(--text)}
+.feat{grid-column:1/-1;background:var(--ink);color:#D5DEEC;border:0;display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center}
+.feat h3{color:#fff;font-size:1.6rem}
+.feat .ico{background:rgba(79,227,193,.15)}
+.feat .tags span{background:rgba(255,255,255,.1);color:#fff}
+.link{display:inline-flex;gap:8px;align-items:center;font-weight:600;font-size:15px;text-decoration:none;padding:12px 20px;border-radius:12px;background:var(--mint);color:var(--ink);transition:transform .2s}
+.link:hover{transform:translateY(-2px)}
+.link svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+footer{margin-top:72px;background:var(--ink);color:#8FA0BB;text-align:center;font-size:14px;padding:28px 20px}
+footer strong{color:#fff;font-weight:600}
+
+@media(max-width:760px){.about,.skills,.projects,.feat{grid-template-columns:1fr}.hero-in{padding:64px 20px 56px}.hero::after{background:rgba(15,28,46,.7)}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Sections">
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="grid" id="grid" aria-hidden="true"></div>
+  <div class="hero-in">
+    <span class="badge">BS Information Technology, Class of 2026</span>
+    <h1>Randell J. Natividad</h1>
+    <p class="role">Recent graduate from STI College Baguio, building web, mobile and game projects.</p>
+    <div class="meta">
+      <a class="btn" href="https://github.com/RandellNatividad" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        github.com/RandellNatividad
+      </a>
+      <span class="loc"><svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>Baguio City, Philippines</span>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="about">
+    <div class="h"><b></b><h2>About me</h2></div>
+    <div class="about">
+      <p>Recent Bachelor of Science in Information Technology graduate (Class of 2026) from STI College Baguio. Focused on full-stack web and mobile application development, 2D and 3D game development, cloud foundations, and network security analysis.</p>
+      <ul class="focus">
+        <li style="--c:var(--blue)">Web and mobile apps</li>
+        <li style="--c:var(--mint)">2D and 3D games</li>
+        <li style="--c:var(--amber)">Cloud foundations</li>
+        <li style="--c:var(--rose)">Network security analysis</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="h"><b></b><h2>Skills</h2></div>
+    <div class="skills">
+      <div class="sk" style="--c:var(--blue)">
+        <h3>Programming languages</h3>
+        <div><span>Python</span><span>Java</span><span>JavaScript</span><span>C#</span><span>HTML/CSS</span><span>SQL</span></div>
+      </div>
+      <div class="sk" style="--c:var(--rose)">
+        <h3>Frameworks &amp; game engines</h3>
+        <div><span>React Native</span><span>Expo</span><span>ASP.NET Core</span><span>Unity (2D &amp; 3D)</span><span>Pygame</span><span>Python Turtle</span><span>PyOpenGL</span></div>
+      </div>
+      <div class="sk" style="--c:var(--amber)">
+        <h3>Tools &amp; platforms</h3>
+        <div><span>Git/GitHub</span><span>Android Studio</span><span>Firebase</span><span>AWS Cloud</span><span>Polygon Blockchain</span><span>Wireshark</span><span>LibreSprite</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="h"><b></b><h2>Experience</h2></div>
+    <div class="tl">
+      <article class="job" style="--c:var(--blue)">
+        <div class="top"><h3>Capstone Developer &amp; Co-Presenter — DermScan</h3><span class="yr">2026</span></div>
+        <p>Developed an AI-assisted skin disease detection app with teammates Carmelo P. Maranes and Brandon J. Ceralde. Presented at the Philippine Startup Challenge XI Cordillera Pitching Competition (October 2026).</p>
+      </article>
+      <article class="job" style="--c:var(--muted)">
+        <div class="top"><h3>Assistant Caretaker — Private Residence, Baguio City</h3><span class="yr">April 2019</span></div>
+        <p>Assisted grandparents with property maintenance, driveway cleaning, and guest preparation on Kneedler Road, South Drive.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="h"><b></b><h2>Projects</h2></div>
+    <div class="projects">
+      <article class="pj feat" style="--c:var(--mint)">
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div class="ico"><svg viewBox="0 0 24 24" style="stroke:var(--mint)"><path d="M12 3l8 4v5c0 4.5-3.2 8.2-8 9-4.8-.8-8-4.5-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+          <h3>DermScan (DermisAI)</h3>
+          <p>AI-assisted skin disease detection, progress tracking, and clinic advisory web and mobile app built with React Native, Expo, Firebase, and Polygon Blockchain.</p>
+          <div class="tags"><span>React Native</span><span>Expo</span><span>Firebase</span><span>Polygon</span></div>
+        </div>
+        <a class="link" href="https://derm-scan-web.vercel.app" target="_blank" rel="noopener noreferrer">Live web prototype
+          <svg viewBox="0 0 24 24"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a>
+      </article>
+
+      <article class="pj" style="--c:var(--blue)">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="11" rx="4"/><path d="M7 10v5M4.5 12.5h5M16 11h.01M18.5 14h.01"/></svg></div>
+        <h3>Unity 2D &amp; 3D Games</h3>
+        <p>Platformer and 3D games programmed in C# featuring custom player physics, tilemap collisions, Cinemachine camera tracking, and animated score systems.</p>
+        <div class="tags"><span>Unity</span><span>C#</span><span>Cinemachine</span></div>
+      </article>
+
+      <article class="pj" style="--c:var(--amber)">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 17l5-5 4 4 7-8"/><path d="M4 4v16h16"/></svg></div>
+        <h3>Python Graphics &amp; Mini-Games</h3>
+        <p>Interactive animations and arcade mini-games built with Python Turtle, Pygame, and PyOpenGL.</p>
+        <div class="tags"><span>Python Turtle</span><span>Pygame</span><span>PyOpenGL</span></div>
+      </article>
+
+      <article class="pj" style="--c:var(--rose)">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/><circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/><path d="M5.5 7.5l4.5 3M18.5 7.5L14 10.5M5.5 16.5l4.5-3M18.5 16.5L14 13.5"/></svg></div>
+        <h3>Network Packet Analysis</h3>
+        <p>Inspected and analyzed network traffic packets using Wireshark.</p>
+        <div class="tags"><span>Wireshark</span><span>Packet Analysis</span></div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer><strong>Randell J. Natividad</strong> • Digital Portfolio</footer>
+
+<script>
+(function(){
+  var g=document.getElementById('grid');if(!g)return;
+  var cols=['#3B6CFF','#4FE3C1','#FFB547','#FF6B8B'];
+  var n=Math.ceil(960/32)*Math.ceil(520/32);
+  for(var i=0;i<n;i++){g.appendChild(document.createElement('i'))}
+  var cells=g.children;
+  function pulse(){
+    var c=cells[Math.floor(Math.random()*cells.length)];
+    c.style.setProperty('--c',cols[Math.floor(Math.random()*cols.length)]);
+    c.classList.add('on');
+    setTimeout(function(){c.classList.remove('on')},1400+Math.random()*1600);
+  }
+  for(var k=0;k<14;k++)pulse();
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){setInterval(pulse,420)}
+})();
+</script>
+</body>
+</html>
